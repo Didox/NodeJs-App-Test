@@ -35,6 +35,17 @@ app.get('/test-rota', function(req, res){
   res.render('test_rota', { usuario: {nome:'leo', slug:'papa-man'} });
 });
 
+var Post = require('./models/post.js');
+app.get('/posts', function (req, res) {
+  Post.all(function(posts, err) {
+    if(err)
+      res.send('404 Not found', 404);
+    else
+      res.render('posts', { posts: posts});
+  });
+});
+
+
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
