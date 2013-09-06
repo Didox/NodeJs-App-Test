@@ -35,13 +35,16 @@ app.get('/test-rota', function(req, res){
   res.render('test_rota', { usuario: {nome:'leo', slug:'papa-man'} });
 });
 
-var Post = require('./models/post.js');
-app.get('/posts', function (req, res) {
-  Post.all(function(posts, err) {
+var Post = require('./models/task.js');
+app.get('/tasks', function (req, res) {
+  Post.all(function(tasks, err) {
+
+  	console.log(tasks);
+
     if(err)
       res.send('404 Not found', 404);
     else
-      res.render('posts', { posts: posts});
+      res.render('tasks', { tasks: tasks });
   });
 });
 
