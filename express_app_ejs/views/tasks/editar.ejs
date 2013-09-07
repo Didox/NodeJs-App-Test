@@ -1,6 +1,7 @@
 <% include ../shared/header %>
 <h1>Alterar tasks</h1>
 <form class="form-signin" action="/task/atualizar/<%= task.id %>" method="post" name="task_form">
+	<input type="hidden" name="_method" value="put" />
 	<h2 class="form-signin-heading">Preencha os campos abaixo</h2>
 	<label> Nome <input type="text" class="input-block-level" name="name" value="<%= task.name %>">
 	</label> <label> Data <input type="text" name="due_date" value="<%= dateFormat(task.due_date, "dd/mm/yyyy") %>" class="input-block-level">

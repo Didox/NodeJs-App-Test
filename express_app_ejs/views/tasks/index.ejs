@@ -20,7 +20,10 @@
 					<a class="btn" href="/task/editar/<%= task.id %>">Editar</a>
 				</td>
 				<td width="60px">
-					<a class="btn btn-danger" href="/task/apagar/<%= task.id %>">Apagar</a>
+					<form class="form-delete-<%= task.id %>" onsubmit="return confirm('Confirma exclusao?');" action="/task/apagar/<%= task.id %>" method="post" name="task_form">
+						<input type="hidden" name="_method" value="delete" />
+						<button class="btn btn-danger" type="submit">Apagar</button>
+					</form>
 				</td>
 			</tr>
 	  	<% }) %>

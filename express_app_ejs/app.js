@@ -31,13 +31,12 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index);
-
 app.get('/tasks', tasks.index);
 app.get('/task/novo', tasks.novo);
-app.post('/task/criar', tasks.criar);
 app.get('/task/editar/:id', tasks.editar);
-app.post('/task/atualizar/:id', tasks.atualizar);
-app.get('/task/apagar/:id', tasks.delete);
+app.post('/task/criar', tasks.criar);
+app.put('/task/atualizar/:id', tasks.atualizar);
+app.delete('/task/apagar/:id', tasks.delete);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
