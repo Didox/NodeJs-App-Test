@@ -6,6 +6,16 @@
   </head>
   <body>
     <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <p>lista de tasks <%= title %></p>
+
+    <ul>
+    	<% tasks.forEach(function(task){ %>
+		    <li>
+		    	<div id="id"><%= task.id %></div>
+		    	<div id="name"><%= task.name %></div>
+		    	<div id="name"><%= task.due_date %></div>
+		    </li>
+		  <% }) %>
+	  </ul>
   </body>
 </html>
