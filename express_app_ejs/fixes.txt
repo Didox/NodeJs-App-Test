@@ -1,0 +1,3 @@
+Verificar para corrigir problemas de template
+
+https://npmjs.org/package/ejs-locals
