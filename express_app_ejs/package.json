@@ -10,6 +10,7 @@
     "ejs": "*",
     "stylus": "*",
     "mysql": "*",
-    "dateformat": "*"
+    "dateformat": "*",
+    "ejs-locals": "~1.0.2"
   }
 }

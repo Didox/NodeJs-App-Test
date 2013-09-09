@@ -1,34 +1,33 @@
-<% include ../shared/header %>
-  <h1>Tasks</h1>
-	<hr />
-	<a href="/task/novo" class="btn btn-large btn-primary" type="submit">Novo</a>
-	<hr />
-	<% if(tasks.length > 0){ %>
-		<table class="table">
-			<tr>
-				<th>nome</th>
-				<th>data</th>
-				<th>pronto?</th>
-				<th></th>
-			</tr>
-			<% tasks.forEach(function(task){ %>
-			<tr>
-				<td><%= task.name %></td>
-				<td><%= dateFormat(task.due_date, "dd/mm/yyyy") %></td>
-				<td><%= task.done %></td>
-				<td width="60px">
-					<a class="btn" href="/task/editar/<%= task.id %>">Editar</a>
-				</td>
-				<td width="60px">
-					<form class="form-delete-<%= task.id %>" onsubmit="return confirm('Confirma exclusao?');" action="/task/apagar/<%= task.id %>" method="post" name="task_form">
-						<input type="hidden" name="_method" value="delete" />
-						<button class="btn btn-danger" type="submit">Apagar</button>
-					</form>
-				</td>
-			</tr>
-	  	<% }) %>
-		</table>
-	<% } else{ %>
-		<div class="error">Nenhum resultado encontrado</div>
-	<% } %>
-<% include ../shared/footer %>
+<% block('title', "Tasks lista") -%>
+<h1>Tasks</h1>
+<hr />
+<a href="/task/novo" class="btn btn-large btn-primary" type="submit">Novo</a>
+<hr />
+<% if(tasks.length > 0){ %>
+	<table class="table">
+		<tr>
+			<th>nome</th>
+			<th>data</th>
+			<th>pronto?</th>
+			<th></th>
+		</tr>
+		<% tasks.forEach(function(task){ %>
+		<tr>
+			<td><%= task.name %></td>
+			<td><%= dateFormat(task.due_date, "dd/mm/yyyy") %></td>
+			<td><%= task.done %></td>
+			<td width="60px">
+				<a class="btn" href="/task/editar/<%= task.id %>">Editar</a>
+			</td>
+			<td width="60px">
+				<form class="form-delete-<%= task.id %>" onsubmit="return confirm('Confirma exclusao?');" action="/task/apagar/<%= task.id %>" method="post" name="task_form">
+					<input type="hidden" name="_method" value="delete" />
+					<button class="btn btn-danger" type="submit">Apagar</button>
+				</form>
+			</td>
+		</tr>
+  	<% }) %>
+	</table>
+<% } else{ %>
+	<div class="error">Nenhum resultado encontrado</div>
+<% } %>

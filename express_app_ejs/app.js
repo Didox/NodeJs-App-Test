@@ -4,12 +4,19 @@
  */
 
 var express = require('express');
+var engine = require('ejs-locals')
 var routes = require('./routes');
 var tasks = require('./routes/tasks');
 var http = require('http');
 var path = require('path');
 
 var app = express();
+
+app.engine('ejs', engine);
+
+app.locals({
+  _layoutFile: true
+})
 
 // all environments
 app.set('port', process.env.PORT || 3000);

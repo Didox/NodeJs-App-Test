@@ -1,4 +1,3 @@
-<% include ../shared/header %>
+<% block('title', "Tasks cadastro") -%>
 <h1>Cadastrar tasks</h1>
-<% include form %>
-<% include ../shared/footer %>
+<%- partial("form.ejs", { alterar:false }) %>
