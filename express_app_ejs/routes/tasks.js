@@ -18,8 +18,7 @@ exports.novo = function(req, res){
 };
 
 exports.delete = function(req, res){
-  var urlArray = req.url.split("/");
-  var id = urlArray[urlArray.length - 1];
+  var id = req.param("id")
   Task.delete(id, function(ok, error) {
     if(error)
       res.send('Erro ao cadastrar : ' + error.message, 500);
@@ -30,8 +29,7 @@ exports.delete = function(req, res){
 };
 
 exports.atualizar = function(req, res){
-  var urlArray = req.url.split("/");
-  var id = urlArray[urlArray.length - 1];
+  var id = req.param("id")
   task = {
     id:id,
     name:req.param("name"), 
@@ -49,8 +47,7 @@ exports.atualizar = function(req, res){
 };
 
 exports.editar = function(req, res){
-  var urlArray = req.url.split("/");
-  var id = urlArray[urlArray.length - 1];
+  var id = req.param("id")
   Task.get(id, function(tasks, error) {
     if(error)
       res.send('Erro na edicao : ' + error.message, 500);
