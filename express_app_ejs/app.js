@@ -10,19 +10,21 @@ var tasks = require('./routes/tasks');
 var http = require('http');
 var path = require('path');
 
+
 var app = express();
 
 app.engine('ejs', engine);
 
+// app.set('view options', {layout: 'views/ss_layout.ejs'}); // não funciona
 app.locals({
-  _layoutFile: true
+	_layoutFile:'layout.ejs'
 })
 
 // all environments
 app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
-app.set('view options', {layout: 'views/layout.ejs'});
+
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
@@ -44,6 +46,12 @@ app.get('/task/editar/:id', tasks.editar);
 app.post('/task/criar', tasks.criar);
 app.put('/task/atualizar/:id', tasks.atualizar);
 app.delete('/task/apagar/:id', tasks.delete);
+
+
+// ===== my modules ===========
+var carros = require('./modules/carros');
+app.use(carros);
+
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
