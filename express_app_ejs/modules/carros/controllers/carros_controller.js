@@ -25,7 +25,7 @@ exports.insertOne = function(req, res){
     if(error)
       res.send('Erro: ' + error.message, 404);
     else{
-      res.send("dado inserido");
+      res.send("dado inserido\n" + carro.nome);
     }
   });
 };

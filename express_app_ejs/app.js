@@ -49,12 +49,9 @@ app.delete('/task/apagar/:id', tasks.delete);
 
 
 // trava o app node porque eu não deixei o app cair
-/*
-process.on('uncaughtException', function(err) {
-  console.log('Caught exception: ' + err);
-});
-*/
-
+// process.on('uncaughtException', function(err) {
+//   console.log('Caught exception: ' + err);
+// });
 
 // ===== my modules ===========
 var carros = require('./modules/carros');
