@@ -30,4 +30,9 @@ Task.delete = function(id, callback){
   db.cnn.exec(query, callback);
 };
 
+Task.delete_all = function(callback){
+	var query = "delete from tasks";
+  db.cnn.exec(query, callback);
+};
+
 module.exports = Task;
