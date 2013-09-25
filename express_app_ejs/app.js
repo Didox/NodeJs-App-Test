@@ -17,7 +17,7 @@ app.engine('ejs', engine);
 
 // app.set('view options', {layout: 'views/ss_layout.ejs'}); // não funciona
 app.locals({
-	_layoutFile:'layout.ejs'
+	_layoutFile:'../layout.ejs'
 })
 
 // all environments
